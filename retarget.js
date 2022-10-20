@@ -27,6 +27,14 @@ function findServers(root){
 						servers.push(newServers[j])
 						findServers(newServers[j])
 						break;
+					case 3:
+						brutessh(newServers[j])
+						ftpcrack(newServers[j])
+						relaysmtp(newServers[j])
+						nuke(newServers[j])
+						servers.push(newServers[j])
+						findServers(newServers[j])
+						break;
 					default:
 						print(newServers[j]," too powerful for us right now")
 				}
@@ -41,7 +49,7 @@ function findServers(root){
 //Get the target
 var highestLevel = "n00dles"
 for(i in servers){
-	if (getServerRequiredHackingLevel(servers[i]) > getServerRequiredHackingLevel(highestLevel) && 
+	if (getServerMaxMoney(servers[i]) > getServerMaxMoney(highestLevel) && 
 		getServerRequiredHackingLevel(servers[i]) < getHackingLevel()){
 		highestLevel = servers[i]
 	}
